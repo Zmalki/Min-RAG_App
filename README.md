@@ -30,3 +30,16 @@ $ conda activate mini-rag
 ```bash
 export PS1="\[\033[01;32m\]\u@\h:\w\n\[\033[00m\]\$ "
 ```
+## Installation
+
+### Install the required packages
+
+```bash
+$ pip install -r requirements.txt
+```
+
+### Setup the environment variables
+
+```bash
+$ cp .env.example .env
+```
