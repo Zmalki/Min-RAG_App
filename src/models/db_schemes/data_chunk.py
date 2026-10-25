@@ -4,6 +4,7 @@ from bson.objectid import ObjectId
 
 class DataChunk(BaseModel):
     id: Optional[ObjectId] = Field(None, alias="_id")
+    chunk_asset_id: Optional[ObjectId] = None
     chunk_text: str = Field(..., min_length=1)
     chunk_metadata: dict
     chunk_order: int = Field(..., gt=0)
@@ -12,7 +13,7 @@ class DataChunk(BaseModel):
 
     class Config:
         arbitrary_types_allowed = True
-    @classMethod
+    @classmethod
     def get_indexes(cls ):  
             return [
                 {
