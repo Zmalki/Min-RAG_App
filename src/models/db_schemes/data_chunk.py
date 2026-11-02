@@ -17,7 +17,7 @@ class DataChunk(BaseModel):
     def get_indexes(cls ):  
             return [
                 {
-                    "keys": [("chunk_project_id", 1)],    
+                    "key": [("chunk_project_id", 1)],    
                     "name": "chunk_project_id_index_1",
                     "unique": False
                 }
