@@ -1,15 +1,18 @@
 from ..LLMInterface import LLMInterface
-from ..LLMEnums import OpenAIEnums
+from src.stores.llm.LLMEnums import OpenAIEnums
 from openai import OpenAI
 import logging
 
 class OpenAIProvider(LLMInterface):
 
-    def __init__(self, api_key: str, api_url: str=None,
-                       default_input_max_characters: int=1000,
-                       default_generation_max_output_tokens: int=1000,
-                       default_generation_temperature: float=0.1):
-        
+    def __init__(
+        self,
+        api_key: str,
+        api_url: str = None,
+        default_input_max_characters: int = 1000,
+        default_generation_max_output_tokens: int = 1000,
+        default_generation_temperature: float = 0.1
+    ):
         self.api_key = api_key
         self.api_url = api_url
 
@@ -18,14 +21,17 @@ class OpenAIProvider(LLMInterface):
         self.default_generation_temperature = default_generation_temperature
 
         self.generation_model_id = None
-
         self.embedding_model_id = None
         self.embedding_size = None
 
         self.client = OpenAI(
-            api_key = self.api_key,
-            api_url = self.api_url
+            api_key=self.api_key,
+            base_url=self.api_url
         )
+
+        self.logger = logging.getLogger(__name__)
+
+
 
         self.logger = logging.getLogger(__name__)
     def set_generation_model(self, model_id: str):

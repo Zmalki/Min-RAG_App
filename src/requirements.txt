@@ -8,3 +8,4 @@ langchain==1.4.6
 pymupdf==1.28.2
 motor==3.7.1
 openai==3.42.1
+cohere==7.3.0
